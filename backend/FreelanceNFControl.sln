@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DCA3C8B6-E492-4B3D-B371-AE733B6BD9DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation", "1. Presentation", "{DEB056AE-8834-46FA-BE6F-7F47AE244CA0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Domain", "2. Domain", "{16A397DF-ED99-4C5B-AC1C-9B10CA079344}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Infra", "3. Infra", "{01063FDC-E88C-4EA5-B553-A4FF7ACAF715}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreelanceNFControl.Api", "src\FreelanceNFControl.Api\FreelanceNFControl.Api.csproj", "{E3CCFF20-0DC5-492F-8095-EE9A1D9979D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreelanceNFControl.Domain", "src\FreelanceNFControl.Domain\FreelanceNFControl.Domain.csproj", "{4BB5D1C6-4070-4AD0-AAE1-7DCC96703974}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreelanceNFControl.Infra.Core", "src\FreelanceNFControl.Infra.Core\FreelanceNFControl.Infra.Core.csproj", "{86E9A3B0-B534-47F5-834A-F4CCA910A242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreelanceNFControl.Infra.Data", "src\FreelanceNFControl.Infra.Data\FreelanceNFControl.Infra.Data.csproj", "{C2C0266D-12A1-4081-BAD1-B6B949218F14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3CCFF20-0DC5-492F-8095-EE9A1D9979D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3CCFF20-0DC5-492F-8095-EE9A1D9979D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3CCFF20-0DC5-492F-8095-EE9A1D9979D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3CCFF20-0DC5-492F-8095-EE9A1D9979D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BB5D1C6-4070-4AD0-AAE1-7DCC96703974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BB5D1C6-4070-4AD0-AAE1-7DCC96703974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BB5D1C6-4070-4AD0-AAE1-7DCC96703974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BB5D1C6-4070-4AD0-AAE1-7DCC96703974}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86E9A3B0-B534-47F5-834A-F4CCA910A242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86E9A3B0-B534-47F5-834A-F4CCA910A242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86E9A3B0-B534-47F5-834A-F4CCA910A242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86E9A3B0-B534-47F5-834A-F4CCA910A242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2C0266D-12A1-4081-BAD1-B6B949218F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2C0266D-12A1-4081-BAD1-B6B949218F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2C0266D-12A1-4081-BAD1-B6B949218F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2C0266D-12A1-4081-BAD1-B6B949218F14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DEB056AE-8834-46FA-BE6F-7F47AE244CA0} = {DCA3C8B6-E492-4B3D-B371-AE733B6BD9DF}
+		{16A397DF-ED99-4C5B-AC1C-9B10CA079344} = {DCA3C8B6-E492-4B3D-B371-AE733B6BD9DF}
+		{01063FDC-E88C-4EA5-B553-A4FF7ACAF715} = {DCA3C8B6-E492-4B3D-B371-AE733B6BD9DF}
+		{E3CCFF20-0DC5-492F-8095-EE9A1D9979D3} = {DEB056AE-8834-46FA-BE6F-7F47AE244CA0}
+		{4BB5D1C6-4070-4AD0-AAE1-7DCC96703974} = {16A397DF-ED99-4C5B-AC1C-9B10CA079344}
+		{86E9A3B0-B534-47F5-834A-F4CCA910A242} = {01063FDC-E88C-4EA5-B553-A4FF7ACAF715}
+		{C2C0266D-12A1-4081-BAD1-B6B949218F14} = {01063FDC-E88C-4EA5-B553-A4FF7ACAF715}
+	EndGlobalSection
+EndGlobal
