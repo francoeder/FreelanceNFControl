@@ -6,7 +6,7 @@ namespace FreelanceNFControl.Domain.Interfaces
 {
     public interface IUserService
     {
-        Task<User> Add(User entity, string password);
+        Task Add(User entity, string password);
         Task<LoginResponse> AuthenticateUser(LoginRequest request);
         Task<LoginResponse> AuthenticateUser(User user, string password);
     }

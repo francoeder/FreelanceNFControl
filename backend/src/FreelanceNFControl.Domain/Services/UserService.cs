@@ -4,7 +4,6 @@ using FreelanceNFControl.Domain.Interfaces;
 using FreelanceNFControl.Infra.Core.Helpers;
 using FreelanceNFControl.Infra.Core.Requests.User;
 using Microsoft.AspNetCore.Identity;
-using System.Linq.Expressions;
 
 namespace FreelanceNFControl.Domain.Services
 {
@@ -22,7 +21,7 @@ namespace FreelanceNFControl.Domain.Services
 
         }
 
-        public async Task<User> Add(User entity, string password)
+        public async Task Add(User entity, string password)
         {
             var identityResult = await _userManager.CreateAsync(entity, password);
 
@@ -30,8 +29,6 @@ namespace FreelanceNFControl.Domain.Services
             {
                 throw new InvalidOperationException("There was a problem creating the user.");
             }
-
-            return await _userManager.FindByEmailAsync(entity.Email);
         }
 
         public async Task<LoginResponse> AuthenticateUser(User user, string password)
@@ -49,7 +46,7 @@ namespace FreelanceNFControl.Domain.Services
 
         #region Private Methods
 
-        public async Task<LoginResponse> SignInAsync(User user, string password)
+        private async Task<LoginResponse> SignInAsync(User user, string password)
         {
             var signinResult = await _signInManager
                 .PasswordSignInAsync(user, password, true, lockoutOnFailure: false);
@@ -70,7 +67,7 @@ namespace FreelanceNFControl.Domain.Services
             {
                 UserId = new Guid(user.Id),
                 Email = user.Email,
-                Name = user.UserName,
+                Name = user.FirstName,
                 AccessToken = GenerateJwtToken(user)
             };
 
