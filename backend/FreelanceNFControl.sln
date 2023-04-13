@@ -11,13 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Domain", "2. Domain", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Infra", "3. Infra", "{01063FDC-E88C-4EA5-B553-A4FF7ACAF715}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreelanceNFControl.Api", "src\FreelanceNFControl.Api\FreelanceNFControl.Api.csproj", "{E3CCFF20-0DC5-492F-8095-EE9A1D9979D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreelanceNFControl.Api", "src\FreelanceNFControl.Api\FreelanceNFControl.Api.csproj", "{E3CCFF20-0DC5-492F-8095-EE9A1D9979D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreelanceNFControl.Domain", "src\FreelanceNFControl.Domain\FreelanceNFControl.Domain.csproj", "{4BB5D1C6-4070-4AD0-AAE1-7DCC96703974}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreelanceNFControl.Domain", "src\FreelanceNFControl.Domain\FreelanceNFControl.Domain.csproj", "{4BB5D1C6-4070-4AD0-AAE1-7DCC96703974}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreelanceNFControl.Infra.Core", "src\FreelanceNFControl.Infra.Core\FreelanceNFControl.Infra.Core.csproj", "{86E9A3B0-B534-47F5-834A-F4CCA910A242}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreelanceNFControl.Infra.Data", "src\FreelanceNFControl.Infra.Data\FreelanceNFControl.Infra.Data.csproj", "{C2C0266D-12A1-4081-BAD1-B6B949218F14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreelanceNFControl.Infra.Core", "src\FreelanceNFControl.Infra.Core\FreelanceNFControl.Infra.Core.csproj", "{86E9A3B0-B534-47F5-834A-F4CCA910A242}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +35,6 @@ Global
 		{86E9A3B0-B534-47F5-834A-F4CCA910A242}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86E9A3B0-B534-47F5-834A-F4CCA910A242}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86E9A3B0-B534-47F5-834A-F4CCA910A242}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2C0266D-12A1-4081-BAD1-B6B949218F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2C0266D-12A1-4081-BAD1-B6B949218F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2C0266D-12A1-4081-BAD1-B6B949218F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2C0266D-12A1-4081-BAD1-B6B949218F14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +46,5 @@ Global
 		{E3CCFF20-0DC5-492F-8095-EE9A1D9979D3} = {DEB056AE-8834-46FA-BE6F-7F47AE244CA0}
 		{4BB5D1C6-4070-4AD0-AAE1-7DCC96703974} = {16A397DF-ED99-4C5B-AC1C-9B10CA079344}
 		{86E9A3B0-B534-47F5-834A-F4CCA910A242} = {01063FDC-E88C-4EA5-B553-A4FF7ACAF715}
-		{C2C0266D-12A1-4081-BAD1-B6B949218F14} = {01063FDC-E88C-4EA5-B553-A4FF7ACAF715}
 	EndGlobalSection
 EndGlobal
