@@ -1,0 +1,52 @@
+<p-toast></p-toast>
+<div class="surface-ground h-screen w-screen flex align-items-center justify-content-center" [style]="{'width':'99vw !important', 'height': '98vh !important'}">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="surface-card py-7 px-5 sm:px-7 shadow-2 flex flex-column w-11 sm:w-30rem" style="border-radius:14px">
+            <h1 class="text-2xl mt-0 mb-0">CONTROLE NF FREELANCER</h1>
+            <h3 class="text-color-secondary mb-5">Cadastre-se</h3>
+
+            <div class="mb-4 flex flex-column">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-user"></i>
+                    <input formControlName="name" type="text" pInputText placeholder="Nome" class="w-full" [ngClass]="{'ng-invalid ng-dirty' : submitted && registerForm.get('name')?.errors}">
+                </span>
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && registerForm.get('name')?.errors">Informe um nome válido.</small>
+            </div>
+
+            <div class="mb-4 flex flex-column">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-user"></i>
+                    <input formControlName="lastName" type="text" pInputText placeholder="Sobrenome" class="w-full" [ngClass]="{'ng-invalid ng-dirty' : submitted && registerForm.get('lastName')?.errors}">
+                </span>
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && registerForm.get('lastName')?.errors">Informe um sobrenome válido.</small>
+            </div>
+
+            <div class="mb-4 flex flex-column">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-user"></i>
+                    <input formControlName="email" type="text" pInputText placeholder="Email" class="w-full" [ngClass]="{'ng-invalid ng-dirty' : submitted && registerForm.get('email')?.errors}">
+                </span>
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && registerForm.get('email')?.errors">Informe um email válido.</small>
+            </div>
+
+            <div class="mb-4 flex flex-column">
+                <p-password formControlName="password" placeholder="Senha" [toggleMask]="true"
+                    [inputStyle]="{'width':'100%'}" [style]="{'width':'100%'}" [ngClass]="{'ng-invalid ng-dirty' : submitted && registerForm.get('password')?.errors}"></p-password>
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && registerForm.get('password')?.errors?.['required']">Informe uma senha válida.</small>
+            </div>
+
+            <div class="mb-4 flex flex-column">
+                <p-password formControlName="confirmPassword" placeholder="Confirmação de Senha" [toggleMask]="true"
+                    [inputStyle]="{'width':'100%'}" [style]="{'width':'100%'}" [ngClass]="{'ng-invalid ng-dirty' : submitted && registerForm.get('confirmPassword')?.errors}"></p-password>
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && registerForm.get('confirmPassword')?.errors?.['required']">Informe uma senha válida.</small>
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && registerForm.get('confirmPassword')?.errors?.['confirmPasswordValidator']">As senhas não correspondem.</small>
+            </div>
+
+            <button pButton pRipple label="Cadastrar" class="mb-4" type="submit"></button>
+
+            <a [routerLink]="['/auth/login']" class="text-color-secondary text-center mb-4">
+                <span class="text-color-secondary text-center mb-4">Login</span>
+            </a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+<div class="surface-ground h-screen w-screen flex align-items-center justify-content-center" [style]="{'width':'99vw !important', 'height': '98vh !important'}">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="surface-card py-7 px-5 sm:px-7 shadow-2 flex flex-column w-10 sm:w-30rem"
+            style="border-radius:14px">
+            <h1 class="text-2xl mt-0 mb-0">CONTROLE NF FREELANCER</h1>
+            <h3 class="text-color-secondary mb-5">Login</h3>
+
+            <span class="p-input-icon-left mb-4">
+                <i class="pi pi-user"></i>
+                <input id="userEmail" formControlName="email" type="text" pInputText placeholder="Email" [style]="{'width':'100%'}"
+                    [ngClass]="{'ng-invalid ng-dirty' : submitted && loginForm.get('email')?.errors}">
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && loginForm.get('email')?.errors?.['required']">Informe seu email.</small>
+            </span>
+
+            <div class="mb-4 flex flex-column">
+                <p-password id="userPassword" formControlName="password" placeholder="Senha" [toggleMask]="true" [feedback]="false"
+                    [inputStyle]="{'width':'100%'}" [style]="{'width':'100%'}" [ngClass]="{'ng-invalid ng-dirty' : submitted && loginForm.get('password')?.errors}"></p-password>
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && loginForm.get('password')?.errors?.['required']">Informe sua senha.</small>
+            </div>
+
+            <button pButton pRipple label="Login" class="mb-4" type="submit"></button>
+            
+            <a [routerLink]="['/auth/register']" class="text-color-secondary text-center mb-4">
+                <span class="text-color-secondary text-center mb-4">Cadastre-se aqui</span>
+            </a>
+            
+        </div>
+    </form>
+</div>
