@@ -1,3 +1,4 @@
+<app-menu-bar *ngIf="storageService.isLoggedIn()"></app-menu-bar>
 <div ngxUiLoaderBlurred>
   <router-outlet></router-outlet>
   <p-toast></p-toast>

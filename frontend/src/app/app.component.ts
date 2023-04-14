@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
+import { StorageService } from './core/services/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,10 @@ import { PrimeNGConfig } from 'primeng/api';
 export class AppComponent {
   title = 'FreelanceNFControl';
 
-  constructor(private primengConfig: PrimeNGConfig) {}
+  constructor(
+    private primengConfig: PrimeNGConfig,
+    public storageService: StorageService,
+  ) {}
 
   ngOnInit() {
       this.primengConfig.ripple = true;

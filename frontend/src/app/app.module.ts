@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { MenuBarModule } from './core/menu-bar/menu-bar.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     HttpClientModule,
     NgxUiLoaderModule,
     ToastModule,
-    BrowserAnimationsModule,
+    MenuBarModule,
+    BrowserAnimationsModule
   ],
   providers: [ MessageService ],
   bootstrap: [AppComponent]
