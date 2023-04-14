@@ -1,12 +1,13 @@
-<div class="grid">
+<div class="m-4">
+    <app-tool-bar></app-tool-bar>
 
-    <!-- TODO: put Menubar here -->
-
-    <div class="col-12 xl:col-6">
-        <div class="card">
-            <h5>Receitas e Despesas mês a mês (Gráfico de Balanço)</h5>
-
-            <p-chart type="line" [data]="balanceChartData" [options]="balanceChartOptions" id="nasdaq-chart" height="348"></p-chart>
+    <div class="grid m-4">
+        <div class="col-12 xl:col-6">
+            <div class="card">
+                <h5>Receitas e Despesas mês a mês (Gráfico de Balanço)</h5>
+    
+                <p-chart type="line" [data]="balanceChartData" [options]="balanceChartOptions" id="nasdaq-chart" height="348"></p-chart>
+            </div>
         </div>
     </div>
 </div>

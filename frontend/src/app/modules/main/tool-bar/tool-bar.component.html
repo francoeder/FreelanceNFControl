@@ -1,0 +1,10 @@
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+        <p-button label="Lançar Nota Fiscal" icon="pi pi-plus" styleClass="p-button-success" class="mr-2"></p-button>
+        <p-button label="Lançar Despesa" icon="pi pi-plus" styleClass="p-button-danger"></p-button>
+    </div>
+    
+    <div class="p-toolbar-group-right">
+        <p-calendar [(ngModel)]="dateYear" view="year" dateFormat="yy" inputId="yearpicker"></p-calendar>
+    </div>
+</p-toolbar>

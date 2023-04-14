@@ -3,12 +3,16 @@ import { CommonModule } from '@angular/common';
 import { ChartModule } from 'primeng/chart';
 import { MainComponent } from './main.component';
 import { MainRoutingModule } from './main-routing.module';
+import { MenuBarModule } from 'src/app/core/menu-bar/menu-bar.module';
+import { ToolBarModule } from './tool-bar/tool-bar.module';
 
 @NgModule({
     imports: [
         CommonModule,
         ChartModule,
-        MainRoutingModule
+        MainRoutingModule,
+        MenuBarModule,
+        ToolBarModule
     ],
     declarations: [MainComponent]
 })
