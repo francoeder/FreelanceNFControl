@@ -14,6 +14,7 @@ namespace FreelanceNFControl.Domain.DependencyInjetion
             services.AddDbContext<AppDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddSingleton<Migrator>();
             services.AddScoped<IUserService, UserService>();
 
             return services;

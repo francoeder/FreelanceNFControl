@@ -37,7 +37,12 @@ builder.Services.AddApiVersioning(options =>
     options.ReportApiVersions = true;
 });
 
+builder.Services.AddCors();
+
 var app = builder.Build();
+
+var migrator = app.Services.GetRequiredService<FreelanceNFControl.Domain.DbContext.Migrator>();
+migrator.Migrate().Wait();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -49,6 +54,11 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true));
 
 app.MapControllers();
 
