@@ -39,6 +39,7 @@ export class LoginComponent {
 			this.authService.login(this.email, this.password).subscribe((response) => {
 				console.log(response);
 				this.storageService.saveUserData(response);
+				this.router.navigate(['main']);
 			});
 		}
 	}

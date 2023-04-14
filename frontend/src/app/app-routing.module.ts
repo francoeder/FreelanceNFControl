@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'auth', data: { breadcrumb: 'Auth' }, loadChildren: () => import('./core/auth/auth.module').then(m => m.AuthModule) },
+  { path: 'auth', loadChildren: () => import('./core/auth/auth.module').then(m => m.AuthModule) },
+  { path: 'main', loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule) },
+  
 ];
 
 @NgModule({
