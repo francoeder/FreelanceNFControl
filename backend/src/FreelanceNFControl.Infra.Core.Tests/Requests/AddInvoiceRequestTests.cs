@@ -53,5 +53,24 @@ namespace FreelanceNFControl.Infra.Core.Tests.Requests
             Assert.Single(errorMessages);
             Assert.Equal("Month needs to be a valid month (1 to 12)", errorMessages.First().ErrorMessage);
         }
+
+        [Fact]
+        public void IsValid_WhenDateFieldIsNotDate_ShouldReturnFalseWithCorrectMessages()
+        {
+            // Arrange
+            var request = _fixture.Fixture.Build<AddInvoiceRequest>()
+                .With(request => request.Month, 1)
+                .With(request => request.PaymentDate, "-")
+                .Create();
+
+            // Act
+            var isValid = request.IsValid();
+            var errorMessages = request.GetErrors();
+
+            // Assert
+            Assert.False(isValid);
+            Assert.Single(errorMessages);
+            Assert.Equal("Payment Date must be a valid date", errorMessages.First().ErrorMessage);
+        }
     }
 }
