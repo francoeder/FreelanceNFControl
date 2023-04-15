@@ -16,5 +16,6 @@ namespace FreelanceNFControl.Domain.DbContext
 
         public override DbSet<User> Users { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
+        public virtual DbSet<Expense> Expenses { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace FreelanceNFControl.Domain.DependencyInjetion
             services.AddSingleton<Migrator>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IInvoiceService, InvoiceService>();
+            services.AddScoped<IExpenseService, ExpenseService>();
             services.AddScoped<IHttpContextHelper, HttpContextHelper>();
 
             services.AddAutoMapper(typeof(AutoMapperConfiguration));

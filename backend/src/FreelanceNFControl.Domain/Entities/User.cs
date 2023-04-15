@@ -9,6 +9,7 @@ namespace FreelanceNFControl.Domain.Entities
         public string ProfilePhotoUrl { get; set; }
 
         public virtual List<Invoice> Invoices { get; set; }
+        public virtual List<Expense> Expenses { get; set; }
 
         public User(string firstName, string lastName, string userName, string email)
         {
