@@ -40,6 +40,7 @@ builder.Services.AddApiVersioning(options =>
 builder.Services.AddCors();
 
 var app = builder.Build();
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 var migrator = app.Services.GetRequiredService<FreelanceNFControl.Domain.DbContext.Migrator>();
 migrator.Migrate().Wait();

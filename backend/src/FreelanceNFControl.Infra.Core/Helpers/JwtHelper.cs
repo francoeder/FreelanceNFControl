@@ -28,5 +28,14 @@ namespace FreelanceNFControl.Infra.Core.Helpers
 
             return tokenHandler.WriteToken(token);
         }
+
+        public static JwtSecurityToken DecryptToken(string encryptedToken)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.ReadJwtToken(encryptedToken);
+            return token;
+        }
     }
+
+
 }

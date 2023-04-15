@@ -1,4 +1,5 @@
-﻿using FreelanceNFControl.Domain.DbContext;
+﻿using FreelanceNFControl.Domain.Configuration;
+using FreelanceNFControl.Domain.DbContext;
 using FreelanceNFControl.Domain.Interfaces;
 using FreelanceNFControl.Domain.Services;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,9 @@ namespace FreelanceNFControl.Domain.DependencyInjetion
 
             services.AddSingleton<Migrator>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IInvoiceService, InvoiceService>();
+
+            services.AddAutoMapper(typeof(AutoMapperConfiguration));
 
             return services;
         }

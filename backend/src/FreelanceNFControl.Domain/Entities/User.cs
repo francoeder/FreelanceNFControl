@@ -8,6 +8,8 @@ namespace FreelanceNFControl.Domain.Entities
         public string LastName { get; set; }
         public string ProfilePhotoUrl { get; set; }
 
+        public virtual List<Invoice> Invoices { get; set; }
+
         public User(string firstName, string lastName, string userName, string email)
         {
             FirstName = firstName;
