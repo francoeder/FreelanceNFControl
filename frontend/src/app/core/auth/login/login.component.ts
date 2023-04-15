@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { StorageService } from '../../services/storage.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
@@ -15,14 +15,11 @@ export class LoginComponent {
 	submitted = false;
 	forgotLinkHover = false;
 
-	returnUrl: string;
-
 	constructor(
 		private router: Router,
 		private authService: AuthService,
 		private storageService: StorageService,
 		private formBuilder: FormBuilder,
-		private route: ActivatedRoute,
 		private loaderService: NgxUiLoaderService,
 		private messageService: MessageService,
 	) {
@@ -30,8 +27,6 @@ export class LoginComponent {
 			email: ['', [Validators.required, Validators.email]],
 			password: ['', Validators.required]
 		});
-
-		this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
 	}
 
 	get email () { return this.loginForm.get('email')?.value }
@@ -61,11 +56,5 @@ export class LoginComponent {
 		messages.forEach((message) => {
 			this.messageService.add({ severity: 'error', summary: 'Erro!', detail: message, life: 5000 });
 		})
-	}
-
-	handleRedirect() {
-		this.returnUrl ?
-			this.router.navigate([this.returnUrl]) :
-			this.router.navigate(["/"]);
 	}
 }

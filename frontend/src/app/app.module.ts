@@ -9,6 +9,7 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { MenuBarModule } from './core/menu-bar/menu-bar.module';
+import { AuthModule } from './core/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MenuBarModule } from './core/menu-bar/menu-bar.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AuthModule,
     NgxUiLoaderModule,
     ToastModule,
     MenuBarModule,

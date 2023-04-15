@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MenuBarComponent } from './menu-bar.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('MenuBarComponent', () => {
   let component: MenuBarComponent;
@@ -8,7 +9,8 @@ describe('MenuBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenuBarComponent ]
+      declarations: [ MenuBarComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
 
