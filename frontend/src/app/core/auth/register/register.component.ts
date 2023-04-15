@@ -9,7 +9,6 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
 	templateUrl: './register.component.html',
-	providers: [MessageService]
 })
 export class RegisterComponent implements OnInit {
 
@@ -57,11 +56,9 @@ export class RegisterComponent implements OnInit {
 						this.router.navigate(['/auth/login']);
 					},
 					error: (fail) => {
+						console.log(fail);
 						this.loaderService.stop();
-						this.showError(["Ocorreu um erro"]);
-					},
-					complete: () => {
-						this.loaderService.stop();
+						this.showError(["Erro ao tentar cadastrar o usuário"]);
 					}
 				});
 		}
