@@ -13,7 +13,6 @@ namespace FreelanceNFControl.Infra.Core.Validators.Invoice
             RuleFor(request => request.Description).NotEmpty().WithMessage("{PropertyName} is required");
             RuleFor(request => request.Month).InclusiveBetween(1, 12).WithMessage("{PropertyName} needs to be a valid month (1 to 12)");
             RuleFor(request => request.PaymentDate)
-                .NotEmpty().WithMessage("{PropertyName} is required")
                 .Must(item => DateTime.TryParse(item, out var date)).WithMessage("{PropertyName} must be a valid date");
         }
     }

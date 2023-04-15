@@ -22,7 +22,7 @@ namespace FreelanceNFControl.Domain.Tests.Services
         {
             // Arrange
             var service = _fixture.GetInstance();
-            var user = _fixture.Fixture.Create<User>();
+            var user = _fixture.Fixture.Build<User>().Without(item => item.Invoices).Create();
             var password = _fixture.Fixture.Create<string>();
 
             _fixture.UserManagerMock
@@ -41,7 +41,7 @@ namespace FreelanceNFControl.Domain.Tests.Services
         {
             // Arrange
             var service = _fixture.GetInstance();
-            var user = _fixture.Fixture.Create<User>();
+            var user = _fixture.Fixture.Build<User>().Without(item => item.Invoices).Create();
             var password = _fixture.Fixture.Create<string>();
 
             _fixture.UserManagerMock
@@ -62,7 +62,10 @@ namespace FreelanceNFControl.Domain.Tests.Services
         {
             // Arrange
             var service = _fixture.GetInstance();
-            var user = _fixture.Fixture.Build<User>().With(user => user.Id, new Guid().ToString()).Create();
+            var user = _fixture.Fixture.Build<User>()
+                .With(user => user.Id, new Guid().ToString())
+                .Without(item => item.Invoices)
+                .Create();
             var password = _fixture.Fixture.Create<string>();
 
             _fixture.SignInManagerMock
@@ -89,7 +92,7 @@ namespace FreelanceNFControl.Domain.Tests.Services
         {
             // Arrange
             var service = _fixture.GetInstance();
-            var user = _fixture.Fixture.Create<User>();
+            var user = _fixture.Fixture.Build<User>().Without(item => item.Invoices).Create();
             var password = _fixture.Fixture.Create<string>();
 
             _fixture.SignInManagerMock
@@ -111,7 +114,10 @@ namespace FreelanceNFControl.Domain.Tests.Services
             // Arrange
             var service = _fixture.GetInstance();
             var loginRequest = _fixture.Fixture.Create<LoginRequest>();
-            var user = _fixture.Fixture.Build<User>().With(user => user.Id, new Guid().ToString()).Create();
+            var user = _fixture.Fixture.Build<User>()
+                .With(user => user.Id, new Guid().ToString())
+                .Without(item => item.Invoices)
+                .Create();
             var password = _fixture.Fixture.Create<string>();
 
             _fixture.UserManagerMock
@@ -143,7 +149,7 @@ namespace FreelanceNFControl.Domain.Tests.Services
             // Arrange
             var service = _fixture.GetInstance();
             var loginRequest = _fixture.Fixture.Create<LoginRequest>();
-            var user = _fixture.Fixture.Create<User>();
+            var user = _fixture.Fixture.Build<User>().Without(item => item.Invoices).Create();
             var password = _fixture.Fixture.Create<string>();
 
             _fixture.UserManagerMock

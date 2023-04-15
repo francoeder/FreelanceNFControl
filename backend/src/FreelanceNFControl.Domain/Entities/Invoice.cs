@@ -2,7 +2,7 @@
 {
     public class Invoice
     {
-        protected Invoice()
+        public Invoice()
         {
             Id = Guid.NewGuid();
         }

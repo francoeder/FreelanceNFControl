@@ -1,19 +1,14 @@
-﻿using AutoFixture;
-using FreelanceNFControl.Domain.Entities;
+﻿using FreelanceNFControl.Domain.Entities;
 using FreelanceNFControl.Domain.Services;
 using FreelanceNFControl.Domain.Tests.Base;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Moq;
 
 namespace FreelanceNFControl.Domain.Tests.Services.Fixtures
 {
     public class UserServiceFixture : BaseFixture
     {
-        public List<User> Users { get; protected set; } = new List<User>();
         public readonly Mock<UserManager<User>> UserManagerMock;
         public readonly Mock<SignInManager<User>> SignInManagerMock;
         

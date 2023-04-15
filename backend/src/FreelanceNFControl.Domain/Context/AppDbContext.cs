@@ -10,7 +10,11 @@ namespace FreelanceNFControl.Domain.DbContext
         {
         }
 
+        public AppDbContext()
+        {
+        }
+
         public override DbSet<User> Users { get; set; }
-        public DbSet<Invoice> Invoices { get; set; }
+        public virtual DbSet<Invoice> Invoices { get; set; }
     }
 }

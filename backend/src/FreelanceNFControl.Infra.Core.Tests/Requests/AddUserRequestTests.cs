@@ -1,11 +1,6 @@
 ﻿using AutoFixture;
 using FreelanceNFControl.Infra.Core.Requests.User;
 using FreelanceNFControl.Infra.Core.Tests.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FreelanceNFControl.Infra.Core.Tests.Requests
 {
