@@ -4,6 +4,7 @@ using FreelanceNFControl.Domain.Interfaces;
 using FreelanceNFControl.Infra.Core.Helpers;
 using FreelanceNFControl.Infra.Core.Requests.User;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 
 namespace FreelanceNFControl.Domain.Services
 {
@@ -11,14 +12,16 @@ namespace FreelanceNFControl.Domain.Services
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly IConfiguration _configuration;
 
         public UserService(
             UserManager<User> userManager,
-            SignInManager<User> signInManager)
+            SignInManager<User> signInManager,
+            IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-
+            _configuration = configuration;
         }
 
         public async Task Add(User entity, string password)
@@ -78,7 +81,7 @@ namespace FreelanceNFControl.Domain.Services
         {
             var claimsPrincipal = _signInManager.CreateUserPrincipalAsync(user).Result;
 
-            var secret = "fe8b3c12-9485-4494-a7f3-aa0d6809f7e7"; // TODO: Move to appsettings
+            var secret = _configuration["AuthenticationJWTSecret"];
             var expirationHours = 24;
             var expirationDate = DateTime.UtcNow.AddHours(expirationHours);
 

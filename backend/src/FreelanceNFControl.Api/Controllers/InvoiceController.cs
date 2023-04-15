@@ -2,6 +2,7 @@
 using FreelanceNFControl.Domain.Entities;
 using FreelanceNFControl.Domain.Interfaces;
 using FreelanceNFControl.Infra.Core.Requests.Invoice;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FreelanceNFControl.Api.Controllers
@@ -23,6 +24,7 @@ namespace FreelanceNFControl.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddInvoice(AddInvoiceRequest request)
         {
             if (!request.IsValid())

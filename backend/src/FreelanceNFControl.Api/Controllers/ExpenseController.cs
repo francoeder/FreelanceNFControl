@@ -2,6 +2,7 @@
 using FreelanceNFControl.Domain.Entities;
 using FreelanceNFControl.Domain.Interfaces;
 using FreelanceNFControl.Infra.Core.Requests.Expense;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FreelanceNFControl.Api.Controllers
@@ -23,6 +24,7 @@ namespace FreelanceNFControl.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddExpense(AddExpenseRequest request)
         {
             if (!request.IsValid())
