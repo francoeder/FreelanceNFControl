@@ -3,11 +3,12 @@
 
     <div class="grid m-4">
         <div class="col-12">
-            <div class="card flex justify-content-center gap-8">
+            <div class="card flex justify-content-center gap-6">
                 <app-reached-invoice-chart></app-reached-invoice-chart>
+                <app-financial-statement-chart></app-financial-statement-chart>
             </div>
         </div>
     </div>
 </div>
 <app-invoice-modal [display]="displayInvoiceModal" (onClose)="invoiceModalOnClose()"></app-invoice-modal>
-<app-expense-modal [display]="displayExpenseModal" (onClose)="displayExpenseModal=false"></app-expense-modal>
+<app-expense-modal [display]="displayExpenseModal" (onClose)="expenseModalOnClose()"></app-expense-modal>

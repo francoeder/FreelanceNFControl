@@ -7,6 +7,7 @@ import { ToolBarModule } from './tool-bar/tool-bar.module';
 import { InvoiceModalModule } from 'src/app/shared/components/invoice-modal/invoice-modal.module';
 import { ExpenseModalModule } from 'src/app/shared/components/expense-modal/expense-modal.module';
 import { ReachedInvoiceChartModule } from 'src/app/shared/components/reached-invoice-chart/reached-invoice-chart.module';
+import { FinancialStatementChartModule } from 'src/app/shared/components/financial-statement-chart/financial-statement-chart.module';
 
 @NgModule({
     imports: [
@@ -17,6 +18,7 @@ import { ReachedInvoiceChartModule } from 'src/app/shared/components/reached-inv
         InvoiceModalModule,
         ExpenseModalModule,
         ReachedInvoiceChartModule,
+        FinancialStatementChartModule
     ],
     declarations: [MainComponent]
 })

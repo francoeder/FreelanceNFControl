@@ -1,4 +1,4 @@
-<p-card header="Faturamento Anual Realizado x Limite Anual MEI" class="w-3 h-4">
-    <p-chart type="doughnut" [data]="reachedInvoiceChartData" [options]="reachedInvoiceChartOptions"></p-chart>
+<div class="card flex justify-content-center">
+    <p-chart type="doughnut" width="30vw" height="50vh" class="p-element" [data]="reachedInvoiceChartData" [options]="reachedInvoiceChartOptions"></p-chart>
     <p-tag value="Limite MEI Atingido!" severity="danger" *ngIf="annualLimitReached"></p-tag>
-</p-card>
+</div>

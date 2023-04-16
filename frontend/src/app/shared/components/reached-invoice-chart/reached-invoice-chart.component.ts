@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ChartsService } from 'src/app/modules/main/services/charts.service';
 import { InvoiceService } from '../../services/invoice.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-reached-invoice-chart',
@@ -22,6 +23,7 @@ export class ReachedInvoiceChartComponent implements OnInit {
   constructor(
     private invoiceService: InvoiceService,
     private chartsService: ChartsService,
+    private messageService: MessageService,
   ) {
     this.chartsService.yearFilter.subscribe((year) => {
       this.fetchSummarizedInvoicesValue(year);
@@ -40,7 +42,8 @@ export class ReachedInvoiceChartComponent implements OnInit {
         this.setReachedInvoiceChart();
       },
       error: (fail) => {
-
+        console.log(fail);
+        this.showError(['Ocorreu um erro ao obter os dados do gráfico Faturamento Anual Realizado x Limite Anual MEI']);
       }
     })
   }
@@ -70,7 +73,7 @@ export class ReachedInvoiceChartComponent implements OnInit {
     };
 
     this.reachedInvoiceChartOptions = {
-      responsive: true,
+      responsive: false,
       plugins: {
           legend: {
               labels: {
@@ -80,5 +83,11 @@ export class ReachedInvoiceChartComponent implements OnInit {
       }
     }
   }
+
+  private showError(messages: string[]) {
+		messages.forEach((message) => {
+			this.messageService.add({ severity: 'error', summary: 'Erro!', detail: message, life: 5000 });
+		})
+	}
 
 }

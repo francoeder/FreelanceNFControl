@@ -26,4 +26,9 @@ export class MainComponent implements OnInit {
     this.displayInvoiceModal=false;
     this.chartsService.yearFilter.next(new Date().getFullYear());
   }
+
+  expenseModalOnClose() {
+    this.displayExpenseModal=false;
+    this.chartsService.yearFilter.next(new Date().getFullYear());
+  }
 }
