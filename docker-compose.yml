@@ -1,0 +1,40 @@
+version: '3.4'
+
+services:
+
+  database:
+    container_name: database
+    image: postgres:latest
+    hostname: localhost
+    ports:
+        - 5432:5432
+    environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=senhaS3creta
+    networks:
+      - app-network
+
+  backend:
+    container_name: backend
+    build: ./backend
+    depends_on: 
+      - database
+    ports:
+      - 5000:5000
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Internal
+    networks:
+      - app-network
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+    depends_on: 
+      - backend
+    ports:
+      - "80:80"
+
+networks:
+  app-network:
+    driver: bridge
