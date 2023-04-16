@@ -1,5 +1,5 @@
 <div class="m-4">
-    <app-tool-bar></app-tool-bar>
+    <app-tool-bar (displayInvoiceModal)="displayInvoiceModal=true"></app-tool-bar>
 
     <div class="grid m-4">
         <div class="col-12 xl:col-6">
@@ -11,3 +11,4 @@
         </div>
     </div>
 </div>
+<app-invoice-modal [display]="displayInvoiceModal" (onClose)="displayInvoiceModal=false"></app-invoice-modal>

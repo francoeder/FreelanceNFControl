@@ -1,0 +1,49 @@
+<p-dialog [(visible)]="display" (onHide)="onCloseEventEmit()" [style]="{width: '35vw'}" header="Lançamento de Nota Fiscal" [modal]="true" class="p-fluid">
+    
+        <ng-template pTemplate="content">
+            <div class="field">
+                <label for="displayName">Empresa</label>
+                <p-autoComplete [(ngModel)]="selectedCustomer" [showEmptyMessage]="true" [suggestions]="filteredCustomers"
+                    (completeMethod)="filterCustomer($event)" [completeOnFocus]="true" [showClear]="true" [forceSelection]="true"
+                    field="displayName" [minLength]="1" [required]="true" [placeholder]="'Digite o CNPJ da Empresa'"></p-autoComplete>
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && !selectedCustomer">Selecione a empresa da nota fiscal.</small>
+            </div>
+            <div class="field">
+                <label for="name">Valor da Nota Fiscal</label>
+                <input pInputText id="value" required [(ngModel)]="invoice.value" [disabled]="!selectedCustomer"
+                    currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                    [ngClass]="{'ng-invalid ng-dirty' : submitted && !invoice.value}"/>
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && !invoice.value">Informe o valor da nota fiscal.</small>
+            </div>
+            <div class="field">
+                <label for="invoiceNumber">Número da Nota Fiscal</label>
+                <input type="number" pInputText id="invoiceNumber" [(ngModel)]="invoice.invoiceNumber" required [disabled]="!selectedCustomer"
+                    [ngClass]="{'ng-invalid ng-dirty' : submitted && !invoice.invoiceNumber}" [max]="999999" [maxlength]="6"/>
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && !invoice.invoiceNumber">Informe o número da nota fiscal.</small>
+            </div>
+            <div class="field">
+                <label for="description">Descrição do Serviço Prestado</label>
+                <input type="text" pInputText id="description" [(ngModel)]="invoice.description" required [disabled]="!selectedCustomer"
+                    [ngClass]="{'ng-invalid ng-dirty' : submitted && !invoice.description}"/>
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && !invoice.description">Informe a descrição do serviço prestado.</small>
+            </div>
+            <div class="field">
+                <label for="month">Mês de Competência</label>
+                <p-calendar appendTo="body" [(ngModel)]="invoice.month" view="month" dateFormat="mm/yy" [disabled]="!selectedCustomer"
+                    [readonlyInput]="true" inputId="month" [ngClass]="{'ng-invalid ng-dirty' : submitted && !invoice.month}"></p-calendar>
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && !invoice.month">Informe o mês de competência da nota fiscal.</small>
+            </div>
+            <div class="field">
+                <label for="paymentDate">Data de Recebimento</label>
+                <p-calendar appendTo="body" id="paymentDate" dateFormat="dd/mm/yy" [(ngModel)]="invoice.paymentDate" [disabled]="!selectedCustomer"
+                    [ngClass]="{'ng-invalid ng-dirty' : submitted && !invoice.paymentDate}"></p-calendar>
+                <small class="ng-dirty ng-invalid" *ngIf="submitted && !invoice.paymentDate">Informe a data de recebimento da nota fiscal.</small>
+            </div>
+            
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-outlined p-button-danger" (click)="onCloseEventEmit()"></button>
+            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-outlined" (click)="create()"></button>
+        </ng-template>
+</p-dialog>

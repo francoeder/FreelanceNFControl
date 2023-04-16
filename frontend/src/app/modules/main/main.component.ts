@@ -8,6 +8,8 @@ export class MainComponent implements OnInit {
     balanceChartData: any;
     balanceChartOptions: any;
 
+    displayInvoiceModal = false;
+
     constructor() {}
 
     ngOnInit() {
@@ -81,7 +83,7 @@ export class MainComponent implements OnInit {
         };
     }
 
-    get colorScheme(): string {
-        return "";
+    changeDisplayInvoiceModal() {
+        this.displayInvoiceModal = true;
     }
 }

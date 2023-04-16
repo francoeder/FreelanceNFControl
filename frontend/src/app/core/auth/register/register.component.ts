@@ -54,6 +54,7 @@ export class RegisterComponent implements OnInit {
 						this.storageService.saveUserData(response);
 						this.showSuccess("Cadastro efetuado com sucesso.");
 						this.router.navigate(['/auth/login']);
+						this.loaderService.stop();
 					},
 					error: (fail) => {
 						console.log(fail);

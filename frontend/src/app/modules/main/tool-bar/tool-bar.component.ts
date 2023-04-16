@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-tool-bar',
@@ -9,9 +9,15 @@ export class ToolBarComponent implements OnInit {
 
   dateYear: Date = new Date();
 
+  @Output() displayInvoiceModal: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  emitDisplayInvoiceModal() {
+    this.displayInvoiceModal.emit();
   }
 
 }

@@ -1,0 +1,29 @@
+{
+    "data": [
+        {
+            "displayName": "Wayne Enterprises (82.741.647/0001-39)",
+            "name": "Wayne Enterprises",
+            "code": "82741647000139"
+        },
+        {
+            "displayName": "SpaceX (65.716.792/0001-40)",
+            "name": "SpaceX",
+            "code": "65716792000140"
+        },
+        {
+            "displayName": "LexCorp (38.141.146/0001-20)",
+            "name": "LexCorp",
+            "code": "38141146000120"
+        },
+        {
+            "displayName": "Umbrella Corp. (91.131.474/0001-28)",
+            "name": "Umbrella Corp.",
+            "code": "91131474000128"
+        },
+        {
+            "displayName": "ACME Corp. (42.245.211/0001-34)",
+            "name": "ACME Corp.",
+            "code": "42245211000134"
+        }
+    ]
+}
