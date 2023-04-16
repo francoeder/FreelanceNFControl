@@ -38,5 +38,13 @@ namespace FreelanceNFControl.Api.Controllers
 
             return Ok(invoice);
         }
+
+        [HttpGet("summarized")]
+        [Authorize]
+        public async Task<IActionResult> GetYear([FromQuery] GetSummarizedInvoicesValueRequest request)
+        {
+            var result = await _invoiceService.GetSummarizedInvoicesValue(request);
+            return Ok(result);
+        }
     }
 }
