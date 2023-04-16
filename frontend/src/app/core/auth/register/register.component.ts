@@ -51,7 +51,6 @@ export class RegisterComponent implements OnInit {
 
 			this.authService.register(this.name, this.lastName, this.email, this.password, this.confirmPassword).subscribe({
 					next: (response) => {
-						this.storageService.saveUserData(response);
 						this.showSuccess("Cadastro efetuado com sucesso.");
 						this.router.navigate(['/auth/login']);
 						this.loaderService.stop();
