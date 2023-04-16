@@ -1,5 +1,7 @@
 ﻿using FreelanceNFControl.Domain.Entities;
+using FreelanceNFControl.Infra.Core.Requests.Expense;
 using FreelanceNFControl.Infra.Core.Requests.Invoice;
+using FreelanceNFControl.Infra.Core.Responses.Expense;
 using FreelanceNFControl.Infra.Core.Responses.Invoice;
 
 namespace FreelanceNFControl.Domain.Interfaces
@@ -8,5 +10,6 @@ namespace FreelanceNFControl.Domain.Interfaces
     {
         Task AddAsync(Invoice entity);
         Task<SummarizedInvoicesValueResponse> GetSummarizedInvoicesValue(GetSummarizedInvoicesValueRequest request);
+        Task<List<MonthFinancialStatementResponse>> GetFinancialStatement(GetFinancialStatementRequest request);
     }
 }

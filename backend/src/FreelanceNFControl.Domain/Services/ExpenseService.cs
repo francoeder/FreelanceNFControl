@@ -2,6 +2,9 @@
 using FreelanceNFControl.Domain.Entities;
 using FreelanceNFControl.Domain.Interfaces;
 using FreelanceNFControl.Infra.Core.Helpers;
+using FreelanceNFControl.Infra.Core.Requests.Expense;
+using FreelanceNFControl.Infra.Core.Responses.Expense;
+using Microsoft.EntityFrameworkCore;
 
 namespace FreelanceNFControl.Domain.Services
 {
@@ -25,6 +28,17 @@ namespace FreelanceNFControl.Domain.Services
 
             await _dbContext.Expenses.AddAsync(entity);
             await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<MonthFinancialStatementResponse>> GetFinancialStatement(GetFinancialStatementRequest request)
+        {
+            var result = await _dbContext.Expenses
+                .Where(expense => expense.PaymentDate.Year == request.Year)
+                .GroupBy(expense => expense.PaymentDate.Month)
+                .Select(s => new MonthFinancialStatementResponse { MonthNumber = s.Key, SummarizedInvoicesValue = s.Sum(item => item.Value) })
+                .ToListAsync();
+
+            return result;
         }
     }
 }

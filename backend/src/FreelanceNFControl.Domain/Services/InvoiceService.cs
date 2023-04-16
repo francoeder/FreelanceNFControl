@@ -2,7 +2,9 @@
 using FreelanceNFControl.Domain.Entities;
 using FreelanceNFControl.Domain.Interfaces;
 using FreelanceNFControl.Infra.Core.Helpers;
+using FreelanceNFControl.Infra.Core.Requests.Expense;
 using FreelanceNFControl.Infra.Core.Requests.Invoice;
+using FreelanceNFControl.Infra.Core.Responses.Expense;
 using FreelanceNFControl.Infra.Core.Responses.Invoice;
 using Microsoft.EntityFrameworkCore;
 
@@ -44,6 +46,17 @@ namespace FreelanceNFControl.Domain.Services
                 SummarizedInvoicesValue = summarizedValue,
                 AnnualBillingThreshold = 81000m
             };
+        }
+
+        public async Task<List<MonthFinancialStatementResponse>> GetFinancialStatement(GetFinancialStatementRequest request)
+        {
+            var result = await _dbContext.Invoices
+                .Where(invoice => invoice.PaymentDate.Year == request.Year)
+                .GroupBy(invoice => invoice.PaymentDate.Month)
+                .Select(s => new MonthFinancialStatementResponse { MonthNumber = s.Key, SummarizedInvoicesValue = s.Sum(item => item.Value) })
+                .ToListAsync();
+
+            return result;
         }
     }
 }
