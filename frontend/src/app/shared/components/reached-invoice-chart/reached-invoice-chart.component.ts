@@ -55,7 +55,7 @@ export class ReachedInvoiceChartComponent implements OnInit {
     this.reachedInvoiceChartData = {
       labels: [
         'Valor Faturado em 2023',
-        'Limite de Faturamento Anual'
+        'Valor Restante para Faturamento'
       ],
       datasets: [
         {
