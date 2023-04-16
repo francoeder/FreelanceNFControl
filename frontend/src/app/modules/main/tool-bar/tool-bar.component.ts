@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChartsService } from '../services/charts.service';
 
 @Component({
   selector: 'app-tool-bar',
@@ -12,9 +13,15 @@ export class ToolBarComponent implements OnInit {
   @Output() displayInvoiceModal: EventEmitter<any> = new EventEmitter();
   @Output() displayExpenseModal: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    private chartsService: ChartsService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  onYearChange() {
+    this.chartsService.yearFilter.next(this.dateYear.getFullYear());
   }
 
   emitDisplayInvoiceModal() {

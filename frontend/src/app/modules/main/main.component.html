@@ -2,11 +2,9 @@
     <app-tool-bar (displayInvoiceModal)="displayInvoiceModal=true" (displayExpenseModal)="displayExpenseModal=true"></app-tool-bar>
 
     <div class="grid m-4">
-        <div class="col-12 xl:col-6">
-            <div class="card">
-                <h5>Receitas e Despesas mês a mês (Gráfico de Balanço)</h5>
-    
-                <p-chart type="line" [data]="balanceChartData" [options]="balanceChartOptions" id="nasdaq-chart" height="348"></p-chart>
+        <div class="col-12">
+            <div class="card flex justify-content-center gap-8">
+                <app-reached-invoice-chart></app-reached-invoice-chart>
             </div>
         </div>
     </div>

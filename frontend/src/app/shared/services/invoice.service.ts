@@ -41,4 +41,11 @@ export class InvoiceService {
 
     return this.http.post(url, body, httpOptions);
   }
+
+  getSummarizedInvoicesValue(year: number) {
+    const httpOptions = this.getHttpOptions();
+    const url = `${environment.apiUrl}/invoice/summarized?year=${year}`;
+
+    return this.http.get(url, httpOptions);
+  }
 }

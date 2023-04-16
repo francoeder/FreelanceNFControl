@@ -5,6 +5,6 @@
     </div>
     
     <div class="p-toolbar-group-right">
-        <p-calendar [(ngModel)]="dateYear" view="year" dateFormat="yy" inputId="yearpicker"></p-calendar>
+        <p-calendar [(ngModel)]="dateYear" view="year" dateFormat="yy" inputId="yearpicker" (onSelect)="onYearChange()"></p-calendar>
     </div>
 </p-toolbar>
