@@ -63,9 +63,9 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WITTY_SKY_0E1FCEB10 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/"
+          app_location: "/dist/freelance-nfcontrol"
           api_location: ""
-          output_location: "/dist/freelance-nfcontrol"
+          output_location: "./"
           skip_app_build: true
           skip_api_build: true
 
