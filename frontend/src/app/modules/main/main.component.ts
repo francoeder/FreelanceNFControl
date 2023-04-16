@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartsService } from './services/charts.service';
 
 @Component({
   templateUrl: './main.component.html'
@@ -14,8 +15,15 @@ export class MainComponent implements OnInit {
   displayInvoiceModal = false;
   displayExpenseModal = false;
 
-  constructor() { }
+  constructor(
+    private chartsService: ChartsService,
+  ) { }
 
   ngOnInit() {
+  }
+
+  invoiceModalOnClose() {
+    this.displayInvoiceModal=false;
+    this.chartsService.yearFilter.next(new Date().getFullYear());
   }
 }

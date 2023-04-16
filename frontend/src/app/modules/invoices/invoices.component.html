@@ -1,0 +1,23 @@
+<h1>Em Breve...</h1>
+<p-table [value]="invoices" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Empresa</th>
+            <th>Valor da Nota Fiscal</th>
+            <th>Número da Nota Fiscal</th>
+            <th>Descrição do Serviço Prestado</th>
+            <th>Mês de Competência</th>
+            <th>Data de Recebimento</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-invoices>
+        <tr>
+            <td><p-skeleton></p-skeleton></td>
+            <td><p-skeleton></p-skeleton></td>
+            <td><p-skeleton></p-skeleton></td>
+            <td><p-skeleton></p-skeleton></td>
+            <td><p-skeleton></p-skeleton></td>
+            <td><p-skeleton></p-skeleton></td>
+        </tr>
+    </ng-template>
+</p-table>

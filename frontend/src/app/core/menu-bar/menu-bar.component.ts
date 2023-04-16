@@ -28,15 +28,18 @@ export class MenuBarComponent implements OnInit {
       },
       {
         label: 'Notas Fiscais',
-        icon: 'pi pi-fw pi-calendar'
+        icon: 'pi pi-fw pi-calendar',
+        command: () => this.router.navigate(['invoices'])
       },
       {
         label: 'Despesas',
-        icon: 'pi pi-fw pi-pencil'
+        icon: 'pi pi-fw pi-pencil',
+        command: () => this.router.navigate(['expenses'])
       },
       {
         label: 'Preferências',
-        icon: 'pi pi-fw pi-cog'
+        icon: 'pi pi-fw pi-cog',
+        command: () => this.router.navigate(['preferences'])
       },
       {
         label: 'Sair',
