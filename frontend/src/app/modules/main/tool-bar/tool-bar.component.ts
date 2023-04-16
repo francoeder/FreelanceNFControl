@@ -10,6 +10,7 @@ export class ToolBarComponent implements OnInit {
   dateYear: Date = new Date();
 
   @Output() displayInvoiceModal: EventEmitter<any> = new EventEmitter();
+  @Output() displayExpenseModal: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class ToolBarComponent implements OnInit {
 
   emitDisplayInvoiceModal() {
     this.displayInvoiceModal.emit();
+  }
+
+  emitDisplayExpenseModal() {
+    this.displayExpenseModal.emit();
   }
 
 }

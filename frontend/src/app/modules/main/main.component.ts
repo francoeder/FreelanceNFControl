@@ -9,6 +9,7 @@ export class MainComponent implements OnInit {
     balanceChartOptions: any;
 
     displayInvoiceModal = false;
+    displayExpenseModal = false;
 
     constructor() {}
 
@@ -81,9 +82,5 @@ export class MainComponent implements OnInit {
                 }
             }
         };
-    }
-
-    changeDisplayInvoiceModal() {
-        this.displayInvoiceModal = true;
     }
 }

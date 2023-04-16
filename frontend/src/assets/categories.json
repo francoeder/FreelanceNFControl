@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "name": "Aluguel da sala comercial ou imóvel",
+            "code": "001"
+        },
+        {
+            "name": "Impostos",
+            "code": "002"
+        },
+        {
+            "name": "Taxas bancárias",
+            "code": "003"
+        },
+        {
+            "name": "Seguros",
+            "code": "004"
+        },
+        {
+            "name": "Energia elétrica, água e internet",
+            "code": "005"
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+<p-dialog [(visible)]="display" (onHide)="onCloseEventEmit()" [style]="{width: '35vw'}" header="Lançamento de Despesa" [modal]="true" class="p-fluid">
+    
+    <ng-template pTemplate="content">
+        <div class="field">
+            <label for="displayName">Categoria</label>
+            <p-autoComplete [(ngModel)]="selectedCategory" [showEmptyMessage]="true" [suggestions]="filteredCategories" appendTo="body"
+                (completeMethod)="filterCategories($event)" [completeOnFocus]="true" [showClear]="true" [forceSelection]="true"
+                field="name" [minLength]="1" [required]="true" [placeholder]="'Digite a Categoria da Despesa'"></p-autoComplete>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !selectedCategory">Selecione a categoria da despesa.</small>
+        </div>
+        <div class="field">
+            <label for="name">Valor da Despesa</label>
+            <input pInputText id="value" required [(ngModel)]="expense.value" [disabled]="!selectedCategory"
+                currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                [ngClass]="{'ng-invalid ng-dirty' : submitted && !expense.value}"/>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !expense.value">Informe o valor da despesa.</small>
+        </div>
+        <div class="field">
+            <label for="description">Nome da Despesa</label>
+            <input type="text" pInputText id="description" [(ngModel)]="expense.description" required [disabled]="!selectedCategory"
+                [ngClass]="{'ng-invalid ng-dirty' : submitted && !expense.description}"/>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !expense.description">Informe o nome da despesa.</small>
+        </div>
+        <div class="field">
+            <label for="paymentDate">Data de Pagamento</label>
+            <p-calendar appendTo="body" id="paymentDate" dateFormat="dd/mm/yy" [(ngModel)]="expense.paymentDate" [disabled]="!selectedCategory"
+                [ngClass]="{'ng-invalid ng-dirty' : submitted && !expense.paymentDate}"></p-calendar>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !expense.paymentDate">Informe a data de pagamento da despesa.</small>
+        </div>
+        <div class="field">
+            <label for="competenceDate">Data de Competência</label>
+            <p-calendar appendTo="body" id="competenceDate" dateFormat="dd/mm/yy" [(ngModel)]="expense.competenceDate" [disabled]="!selectedCategory"
+                [ngClass]="{'ng-invalid ng-dirty' : submitted && !expense.competenceDate}"></p-calendar>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !expense.competenceDate">Informe a data de competência da despesa.</small>
+        </div>
+        
+        <div class="field">
+            <label for="displayName">Empresa</label>
+            <p-autoComplete [(ngModel)]="selectedCustomer" [showEmptyMessage]="true" [suggestions]="filteredCustomers" appendTo="body"
+                (completeMethod)="filterCustomer($event)" [completeOnFocus]="true" [showClear]="true" [forceSelection]="true"
+                field="displayName" [minLength]="1" [placeholder]="'Digite o CNPJ da Empresa'"></p-autoComplete>
+        </div>
+        
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-outlined p-button-danger" (click)="onCloseEventEmit()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-outlined" (click)="create()"></button>
+    </ng-template>
+</p-dialog>
