@@ -32,10 +32,12 @@ namespace FreelanceNFControl.Domain.Services
 
         public async Task<List<MonthFinancialStatementResponse>> GetFinancialStatement(GetFinancialStatementRequest request)
         {
+            var userId = _httpContextHelper.GetUserId();
+
             var result = await _dbContext.Expenses
-                .Where(expense => expense.PaymentDate.Year == request.Year)
+                .Where(expense => expense.PaymentDate.Year == request.Year && expense.UserId == userId)
                 .GroupBy(expense => expense.PaymentDate.Month)
-                .Select(s => new MonthFinancialStatementResponse { MonthNumber = s.Key, SummarizedInvoicesValue = s.Sum(item => item.Value) })
+                .Select(s => new MonthFinancialStatementResponse { MonthNumber = s.Key, SummarizedExpensesValue = s.Sum(item => item.Value) })
                 .ToListAsync();
 
             return result;

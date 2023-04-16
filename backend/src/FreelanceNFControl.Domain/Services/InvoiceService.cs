@@ -1,6 +1,7 @@
 ﻿using FreelanceNFControl.Domain.DbContext;
 using FreelanceNFControl.Domain.Entities;
 using FreelanceNFControl.Domain.Interfaces;
+using FreelanceNFControl.Domain.Migrations;
 using FreelanceNFControl.Infra.Core.Helpers;
 using FreelanceNFControl.Infra.Core.Requests.Expense;
 using FreelanceNFControl.Infra.Core.Requests.Invoice;
@@ -23,7 +24,7 @@ namespace FreelanceNFControl.Domain.Services
             _httpContextHelper = httpContextHelper;
         }
 
-        public async Task AddAsync(Invoice entity)
+        public async Task AddAsync(Entities.Invoice entity)
         {
             var userId = _httpContextHelper.GetUserId();
             entity.UserId = userId;
@@ -50,8 +51,10 @@ namespace FreelanceNFControl.Domain.Services
 
         public async Task<List<MonthFinancialStatementResponse>> GetFinancialStatement(GetFinancialStatementRequest request)
         {
+            var userId = _httpContextHelper.GetUserId();
+
             var result = await _dbContext.Invoices
-                .Where(invoice => invoice.PaymentDate.Year == request.Year)
+                .Where(invoice => invoice.PaymentDate.Year == request.Year && invoice.UserId == userId)
                 .GroupBy(invoice => invoice.PaymentDate.Month)
                 .Select(s => new MonthFinancialStatementResponse { MonthNumber = s.Key, SummarizedInvoicesValue = s.Sum(item => item.Value) })
                 .ToListAsync();
