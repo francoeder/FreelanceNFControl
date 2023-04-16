@@ -3,6 +3,7 @@ using FreelanceNFControl.Domain.Services;
 using FreelanceNFControl.Domain.Tests.Base;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Moq;
 
 namespace FreelanceNFControl.Domain.Tests.Services.Fixtures
@@ -11,7 +12,9 @@ namespace FreelanceNFControl.Domain.Tests.Services.Fixtures
     {
         public readonly Mock<UserManager<User>> UserManagerMock;
         public readonly Mock<SignInManager<User>> SignInManagerMock;
-        
+        public readonly Mock<IConfiguration> ConfigurationMock;
+
+
         public readonly IdentityResultMock IdentityResultFailed;
         public readonly IdentityResultMock IdentityResultSuccess;
 
@@ -45,11 +48,13 @@ namespace FreelanceNFControl.Domain.Tests.Services.Fixtures
 
             SignInResultFailed = new SignInResultMock(false);
             SignInResultSuccess = new SignInResultMock(true);
+
+            ConfigurationMock = new Mock<IConfiguration>();
         }
 
         public UserService GetInstance()
         {
-            return new UserService(UserManagerMock.Object, SignInManagerMock.Object);
+            return new UserService(UserManagerMock.Object, SignInManagerMock.Object, ConfigurationMock.Object);
         }
     }
 
