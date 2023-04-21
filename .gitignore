@@ -456,3 +456,4 @@ $RECYCLE.BIN/
 
 /docs/iabcd-backend/.vscode
 /docs/iabcd-backend/docs
+backend/src/FreelanceNFControl.Api/appsettings.Production.json
